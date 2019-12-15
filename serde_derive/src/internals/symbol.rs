@@ -22,6 +22,7 @@ pub const OTHER: Symbol = Symbol("other");
 pub const REMOTE: Symbol = Symbol("remote");
 pub const RENAME: Symbol = Symbol("rename");
 pub const RENAME_ALL: Symbol = Symbol("rename_all");
+pub const RENAME_ALL_FIELDS: Symbol = Symbol("rename_all_fields");
 pub const SERDE: Symbol = Symbol("serde");
 pub const SERIALIZE: Symbol = Symbol("serialize");
 pub const SERIALIZE_WITH: Symbol = Symbol("serialize_with");
