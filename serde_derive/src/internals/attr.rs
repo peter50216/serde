@@ -386,13 +386,7 @@ impl Container {
                                 rename_all_fields_ser_rule.set(&m.path, rename_rule);
                                 rename_all_fields_de_rule.set(&m.path, rename_rule);
                             }
-                            Err(()) => cx.error_spanned_by(
-                                s,
-                                format!(
-                                    "unknown rename rule for #[serde(rename_all_fields = {:?})]",
-                                    s.value()
-                                ),
-                            ),
+                            Err(err) => cx.error_spanned_by(s, err),
                         }
                     }
                 }
@@ -405,13 +399,7 @@ impl Container {
                                 Ok(rename_rule) => {
                                     rename_all_fields_ser_rule.set(&m.path, rename_rule)
                                 }
-                                Err(()) => cx.error_spanned_by(
-                                    ser,
-                                    format!(
-                                        "unknown rename rule for #[serde(rename_all_fields = {:?})]",
-                                        ser.value(),
-                                    ),
-                                ),
+                                Err(err) => cx.error_spanned_by(ser, err),
                             }
                         }
                         if let Some(de) = de {
@@ -419,13 +407,7 @@ impl Container {
                                 Ok(rename_rule) => {
                                     rename_all_fields_de_rule.set(&m.path, rename_rule)
                                 }
-                                Err(()) => cx.error_spanned_by(
-                                    de,
-                                    format!(
-                                        "unknown rename rule for #[serde(rename_all_fields = {:?})]",
-                                        de.value(),
-                                    ),
-                                ),
+                                Err(err) => cx.error_spanned_by(de, err),
                             }
                         }
                     }
